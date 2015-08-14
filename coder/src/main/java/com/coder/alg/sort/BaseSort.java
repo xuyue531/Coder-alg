@@ -29,24 +29,24 @@ public abstract class BaseSort {
 	/***************************************************************************
 	 * Check if array is sorted - useful for debugging.
 	 ***************************************************************************/
-	private static boolean isSorted(Comparable[] a) {
+	protected static boolean isSorted(Comparable[] a) {
 		return isSorted(a, 0, a.length - 1);
 	}
 
 	// is the array sorted from a[lo] to a[hi]
-	private static boolean isSorted(Comparable[] a, int lo, int hi) {
+	protected static boolean isSorted(Comparable[] a, int lo, int hi) {
 		for (int i = lo + 1; i <= hi; i++)
 			if (less(a[i], a[i - 1]))
 				return false;
 		return true;
 	}
 
-	private static boolean isSorted(Object[] a, Comparator comparator) {
+	protected static boolean isSorted(Object[] a, Comparator comparator) {
 		return isSorted(a, 0, a.length - 1, comparator);
 	}
 
 	// is the array sorted from a[lo] to a[hi]
-	private static boolean isSorted(Object[] a, int lo, int hi,
+	protected static boolean isSorted(Object[] a, int lo, int hi,
 			Comparator comparator) {
 		for (int i = lo + 1; i <= hi; i++)
 			if (less(a[i], a[i - 1], comparator))
@@ -54,7 +54,7 @@ public abstract class BaseSort {
 		return true;
 	}
 	
-	private static void show(Comparable[] a) {
+	protected static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
             StdOut.println(a[i]);
         }
